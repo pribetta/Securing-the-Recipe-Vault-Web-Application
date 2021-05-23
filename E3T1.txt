@@ -1,0 +1,7 @@
+GuardDuty detected that brute force attacks were being made from IP 205.185.121.104 against Web Server Instance.
+It gives information about how the attacks are being made - on port 22 using SSH protocol
+It also shows which instance is being targeted by attackers - in this case the Web server instance, and it shows details about network connections of this instance - vpc, subnet that it is in, the security group attached to it, the network ACL attached to the VPC and also route table.
+
+
+GuardDuty analyses tens of thoudsands of AWS events across multiple data sources like DNS Flow logs, VPC flow logs and CloudTrail logs.
+Since we do not have CloudTrail set up for this EC2 instance, its obvious that GuardDuty got its info from the VPC flow logs and understood that a brute force attack is being made on the web server instance.

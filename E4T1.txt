@@ -1,0 +1,11 @@
+1.
+Security Group of Web instance can have rules to restrict traffic only from load balancer and be out of reach from the internet. This would prevent most attacks.
+ALB can have WAF applied on it to prevent other types of attacks like SQL injection, cross scripting. 
+We can enable AWS shield on the ALB too to prevent DDos Attacks
+
+All VPCs should have a default security group to restrict access from the internet, or basically no Allow rules to allow traffic from the internet. 
+All instances launched in this VPC with no specific security group specified will have this default VPC security group and hence will be protected from malicious activity from the internet.
+
+2.
+Since secret recipes vault is supposed to have higher security, first of all, block all public access to this bucket, apply a bucket policy to allow only certain IAM roles that have been authenticated and authorized by an IAM Federation Agent to access this bucket.
+Also in order to share S3 bucket access to authorized users, use pre-signed URLs which are temporary credentials to access the bucket. This lowers the risk data breach by unwanted users.

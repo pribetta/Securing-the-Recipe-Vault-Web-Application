@@ -1,0 +1,19 @@
+1.
+Additional things that can be made to secure the internet facing web instance - 
+Apply a WAF and AWS Shield to prevent malicious attacks.
+Use Identity Federation to authenticate each user who wants to make requests to the web server and assign IAM roles to normal and privileged users with appropriate access to services.
+Make sure that the Ec2 instances are patched with latest fixes.
+Private subnet's route table should not have access to IGW but NAT gateway instead. Because we dont want resources in private subnets to be discovered by the internet.
+We can have third party traffic analysers set up on the load balancer to analyse traffic to/from the internet and detect attacks.
+Ec2 instances should not have a key pair way of connection. Instead they should be accessed only via AWS SSM.
+
+2.
+Yes, creating private VPC endpoints would help the EC2 instances present in the same VPC access S3 bucket without traversing the public internet routes. They would only be using the private VPC network for communication.
+This prevents data breach while in transit on teh internet.
+
+3.
+No, only the new objects being encrypted will have default encryption applied on them.
+
+4.
+If cloud formation stacks are updated with the original templates, the settings made through CLI or console will get updated to the original settings, meaning security groups and s3 bucket policies will revert to the original settings.
+

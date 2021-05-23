@@ -1,0 +1,16 @@
+1)
+a. Scan infrastructure as code templates: 
+
+Tools - Regula and OPA
+Security Group of Web service is open to all. S3 buckets are open to public access.
+
+b. Scan AMI’s or containers for OS vulnerabilities:
+
+Tools - AWS CodePipeline or Clair
+The container/AMI does not have least priviliged access to users. It lets anyone with the security key have access to it. It should have password authentication too or other higher security practices.
+
+
+c. Scan an AWS environment for cloud configuration vulnerabilities:
+
+Tools - AWS GuardDuty, AWS Config, AWS Inspector for Ec2 instances, Security Hub for reports and metrics
+Security Group is open to internet traffic access and Default VPC security group also allows access to the internet.

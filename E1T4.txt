@@ -1,0 +1,10 @@
+Security Vulnerabilityies:
+
+Web Server Instance's Security Group - WebAppSG should have the rule to accept incoming traffic only from Application Load Balancer Security Group. This way the possibility of being attacked by the attack simulation instance is lower.
+
+If Secret Recipe Vault is directly accessible for a priviliged business user, it is vulnerable to DDoS attacks and to attackers with stolen credentials. Its better to use IAM Federation integrated with CloudFront in front of S3 with WAF configured to reduce the chance of infiltration.
+
+Secret Recipe S3 bucket is accessible to the public via its bucket policy, it should be restricting through IAM roles/users.
+
+
+

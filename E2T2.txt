@@ -1,0 +1,9 @@
+Web App security group is reachable from the internet - we can restrict access only from load balancer to make it more secure
+
+All users on the internet have unrestricted remote desktop access to web security instanceon port 3389 and to SSH to the same instance on port 22
+
+Default security group of all VPCs should restrict traffic - and the newly created VPC allows all traffic from internet by default
+
+ALB is not configured to drop http headers - set ALB_HTTP_DROP_INVALID_HEADER_ENABLED value to true
+
+HTTP listener of Application Load Balancer does not have HTTP to HTTPS redirection configured - set ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK to true
